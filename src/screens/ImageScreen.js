@@ -1,11 +1,11 @@
-import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import ImageDetail from "../components/ImageDetail";
 
 const ImageScreen = () => {
   return (
-    <View>
-      <Text>Image Screen</Text>
+    <ScrollView>
+      <Text style={styles.screenHeader}>Image Screen</Text>
       <ImageDetail
         title="Sport"
         imagePath={require("../../assets/imageOne.jpg")}
@@ -22,10 +22,16 @@ const ImageScreen = () => {
         imagePath={require("../../assets/imageThree.jpg")}
         likes={25}
       />
-    </View>
+    </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {},
+  screenHeader: {
+    fontSize: 30,
+    textAlign: "center",
+  },
+});
 
 export default ImageScreen;
