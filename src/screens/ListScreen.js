@@ -32,7 +32,7 @@ const ListScreen = () => {
 const styles = StyleSheet.create({
   textStyle: {
     marginVertical: 10,
-    backgroundColor: "orange",
+    // backgroundColor: "orange",
     fontSize: 20,
     paddingVertical: 40,
     paddingHorizontal: 10,
