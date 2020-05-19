@@ -6,7 +6,6 @@ const ColorRange = ({
   onIncrease,
   onDecrease,
   colorValue,
-  consoleIt,
   increaseRate,
   changeIncRate,
 }) => {
@@ -19,7 +18,7 @@ const ColorRange = ({
       <Button title={`+ ${color}`} onPress={() => onIncrease()} />
       <Text></Text>
       <Button title={`- ${color}`} onPress={() => onDecrease()} />
-      <Button title="Console color" onPress={consoleIt} />
+      <Text></Text>
       <Button title=" Change Rate" onPress={() => changeIncRate()} />
     </View>
   );

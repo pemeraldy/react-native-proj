@@ -8,13 +8,33 @@ const ColorRangeScreen = () => {
   const [blue, setBlue] = useState(0);
   const [increaseRate, setIncreaseRate] = useState(0);
 
-  const consoleColor = (color) => {
-    console.log(color);
-  };
   const handleIncrease = () => {
     setIncreaseRate(increaseRate + 1);
   };
 
+  const COLOR_INCREMENT = 10;
+
+  const setColor = (color, changeRate) => {
+    switch (color) {
+      case "red":
+        red + changeRate > 255 || red + changeRate < 0
+          ? null
+          : setRed(red + changeRate);
+        return;
+      case "blue":
+        blue + changeRate > 255 || blue + changeRate < 0
+          ? null
+          : setBlue(blue + changeRate);
+        return;
+      case "green":
+        green + changeRate > 255 || green + changeRate < 0
+          ? ""
+          : setGreen(green + changeRate);
+        return;
+      default:
+        return;
+    }
+  };
   return (
     <View>
       <Text>Increase Rate</Text>
@@ -27,29 +47,26 @@ const ColorRangeScreen = () => {
       />
       <ColorRange
         color="red"
-        onIncrease={() => (red < 255 ? setRed(red + 5) : "")}
-        onDecrease={() => (red > 0 ? setRed(red - 5) : "")}
+        onIncrease={() => setColor("red", COLOR_INCREMENT)}
+        onDecrease={() => setColor("red", -1 * COLOR_INCREMENT)}
         colorValue={red}
-        consoleIt={() => consoleColor(red)}
         increaseRate={increaseRate}
         changeIncRate={() => handleIncrease()}
       />
 
       <ColorRange
         color="blue"
-        onIncrease={() => (blue < 255 ? setBlue(blue + 10) : "")}
-        onDecrease={() => (red > 0 ? setBlue(blue - 10) : "")}
+        onIncrease={() => setColor("blue", COLOR_INCREMENT)}
+        onDecrease={() => setColor("blue", -1 * COLOR_INCREMENT)}
         colorValue={blue}
-        consoleIt={() => consoleColor(blue)}
         increaseRate={increaseRate}
       />
 
       <ColorRange
         color="green"
-        onIncrease={() => (green < 255 ? setGreen(green + 5) : "")}
-        onDecrease={() => (green > 0 ? setGreen(green - 5) : "")}
+        onIncrease={() => setColor("green", COLOR_INCREMENT)}
+        onDecrease={() => setColor("green", -1 * COLOR_INCREMENT)}
         colorValue={green}
-        consoleIt={() => consoleColor(green)}
         increaseRate={increaseRate}
       />
     </View>
